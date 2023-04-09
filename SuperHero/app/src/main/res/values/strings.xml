@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SuperHero</string>
+    <string name="hero1">Superman</string>
+    <string name="description1">A superhero with incredible strength, speed, and the ability to fly. He fights for truth, justice, and the American way.</string>
+    <string name="hero2">Batman</string>
+    <string name="description2">A vigilante who uses his wealth and intellect to fight crime in Gotham City. He has no superpowers, but relies on his physical abilities and a range of gadgets.</string>
+    <string name="hero3">Wonder Woman</string>
+    <string name="description3">An Amazonian warrior princess with superhuman strength, speed, and agility. She fights for peace, justice, and equality.</string>
+    <string name="hero4">Spider-Man</string>
+    <string name="description4">A superhero with the ability to crawl on walls, enhanced strength, and a "spidey-sense" that warns him of danger. He fights to protect New York City from various villains.</string>
+    <string name="hero5">Captain America</string>
+    <string name="description5">A super-soldier with enhanced strength, agility, and endurance. He fights for American values and defends the world against threats to freedom and democracy.</string>
+    <string name="hero6">The Flash</string>
+    <string name="description6">A superhero with the power of superhuman speed, allowing him to move at incredible velocities and react at lightning-fast speeds. He uses his abilities to protect Central City and fight against villains who threaten it.</string>
+    <string name="top_bar">Superheroes</string>
+</resources>
