@@ -91,7 +91,7 @@ fun DogItem(dog: Dog, modifier: Modifier = Modifier) {
         mutableStateOf(false)
     }
     val color by animateColorAsState(
-        targetValue = if (expanded) Green50 else MaterialTheme.colors.surface,
+        targetValue = if (expanded) Green50 else    MaterialTheme.colors.surface,
     )
     Card(
         modifier = modifier.padding(8.dp).clip(RoundedCornerShape(10.dp)),
