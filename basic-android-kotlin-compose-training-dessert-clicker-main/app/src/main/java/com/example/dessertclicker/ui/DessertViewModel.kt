@@ -8,8 +8,14 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import com.example.dessertclicker.R
 import com.example.dessertclicker.model.Dessert
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 
 class DessertViewModel: ViewModel(){
+    private val _uiState = MutableStateFlow(DessertUiState())
+    val uiState: StateFlow<DessertUiState> =_uiState.asStateFlow()
 
     /**
      * Determine which dessert to show.
@@ -57,6 +63,19 @@ class DessertViewModel: ViewModel(){
                 intentContext.getString(R.string.sharing_not_available),
                 Toast.LENGTH_LONG
             ).show()
+        }
+    }
+
+    fun updateDessertState() {
+        // Update the revenue
+        _uiState.update { currentState ->
+            val dessertToShow = determineDessertToShow(currentState.desserts, currentState.dessertsSold)
+            currentState.copy(
+                revenue = currentState.revenue + currentState.currentDessertPrice,
+                dessertsSold = currentState.dessertsSold.inc(),
+                currentDessertImageId = dessertToShow.imageId,
+                currentDessertPrice = dessertToShow.price
+            )
         }
     }
 
