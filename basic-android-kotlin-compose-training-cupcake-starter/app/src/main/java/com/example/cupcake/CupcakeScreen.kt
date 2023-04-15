@@ -80,9 +80,11 @@ fun CupcakeAppBar(
 }
 
 @Composable
-fun CupcakeApp(modifier: Modifier = Modifier, viewModel: OrderViewModel = viewModel()){
-    // TODO: Create NavController
-    val navController = rememberNavController()
+fun CupcakeApp(
+    modifier: Modifier = Modifier,
+    viewModel: OrderViewModel = viewModel(),
+    navController: NavHostController = rememberNavController()
+) {
     // TODO: Get current back stack entry
     val backstackEntry by navController.currentBackStackEntryAsState()
     // TODO: Get the name of the current screen
@@ -123,7 +125,12 @@ fun CupcakeApp(modifier: Modifier = Modifier, viewModel: OrderViewModel = viewMo
                     onNextButtonClicked = {
                         navController.navigate(CupcakeScreen.Pickup.name)
                     },
-                    onCancelButtonClicked = { cancelOrderAndNavigateToStart(viewModel, navController) },
+                    onCancelButtonClicked = {
+                        cancelOrderAndNavigateToStart(
+                            viewModel,
+                            navController
+                        )
+                    },
                     options = flavors.map { id ->
                         stringResource(
                             id = id
@@ -138,7 +145,12 @@ fun CupcakeApp(modifier: Modifier = Modifier, viewModel: OrderViewModel = viewMo
                     onNextButtonClicked = {
                         navController.navigate(CupcakeScreen.Summary.name)
                     },
-                    onCancelButtonClicked = { cancelOrderAndNavigateToStart(viewModel, navController) },
+                    onCancelButtonClicked = {
+                        cancelOrderAndNavigateToStart(
+                            viewModel,
+                            navController
+                        )
+                    },
                     options = uiState.pickupOptions,
                     onSelectionChanged = { viewModel.setDate(it) })
             }
@@ -149,7 +161,12 @@ fun CupcakeApp(modifier: Modifier = Modifier, viewModel: OrderViewModel = viewMo
                     onSendButtonClicked = { subject: String, summary: String ->
                         shareOrder(context, subject, summary)
                     },
-                    onCancelButtonClicked = { cancelOrderAndNavigateToStart(viewModel, navController) }
+                    onCancelButtonClicked = {
+                        cancelOrderAndNavigateToStart(
+                            viewModel,
+                            navController
+                        )
+                    }
                 )
             }
         }
