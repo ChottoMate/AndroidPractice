@@ -6,5 +6,10 @@ enum class ReplyNavigationType {
     PERMANENT_NAVIGATION_DRAWER
 }
 
+enum class ReplyContentType {
+    LIST_ONLY,
+    LIST_AND_DETAIL
+}
+
 class WindowStateUtils {
 }
